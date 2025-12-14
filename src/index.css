@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-secondary-light dark:bg-secondary-dark text-text-primary-light dark:text-text-primary-dark transition-colors duration-300 antialiased font-medium;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+}
+
+p, span, a {
+    @apply font-medium;
+}
+
+.text-gradient {
+    @apply font-extrabold;
+}
+
+.glass-pill {
+    @apply font-medium;
+}
+
+.text-text-secondary {
+    @apply font-medium;
+}
+
+code {
+    @apply font-semibold;
+}
