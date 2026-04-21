@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import { AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
     const location = useLocation();
@@ -24,6 +25,7 @@ function AppWrapper() {
         <ThemeProvider>
             <Router>
                 <App />
+                <Analytics />
             </Router>
         </ThemeProvider>
     );
