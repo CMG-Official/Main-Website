@@ -18,42 +18,53 @@ const Navbar: React.FC = () => {
         <AnimatePresence>
             {isVisible && (
                 <motion.header
-                    className="fixed top-0 left-0 right-0 flex justify-center z-50 pt-6"
+                    className="fixed top-0 left-0 right-0 flex justify-center z-50 pt-5"
                     initial={{ y: -100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -100, opacity: 0 }}
                     transition={{
                         type: "spring",
-                        stiffness: 260,
-                        damping: 20,
-                        duration: 0.5,
+                        stiffness: 280,
+                        damping: 22,
+                        duration: 0.4,
                     }}
                 >
-                    <nav className={`rounded-full ${isScrolled ? "backdrop-blur-lg bg-background/50" : ""}`}>
-                        <div className="flex items-center gap-4 px-6 py-3">
+                    <nav
+                        className={`rounded-2xl transition-all duration-300 ${
+                            isScrolled
+                                ? "backdrop-blur-xl bg-white/60 dark:bg-dark-100/70 shadow-lg shadow-primary/5 border border-white/20 dark:border-primary/10"
+                                : "bg-transparent"
+                        }`}
+                    >
+                        <div className="flex items-center gap-3 px-5 py-2.5">
                             <motion.a
                                 href="#home"
-                                className="text-xl font-bold text-gradient"
+                                className="text-lg font-extrabold text-gradient mr-1"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
                                 MC
                             </motion.a>
 
+                            <div className="w-px h-5 bg-primary/20 rounded-full" />
+
                             <motion.div
-                                className="flex items-center gap-2"
+                                className="flex items-center gap-1"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
-                                transition={{ delay: 0.2 }}
+                                transition={{ delay: 0.15 }}
                             >
                                 {navItems.map((item) => (
                                     <motion.a
                                         key={item.label}
                                         href={item.href}
-                                        className={`glass-pill px-3 py-1.5 text-sm ${activeSection === item.href.replace("#", "") ? "bg-primary/20" : ""
-                                            }`}
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
+                                        className={`px-3.5 py-1.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                                            activeSection === item.href.replace("#", "")
+                                                ? "bg-primary/15 text-primary dark:text-indigo-300"
+                                                : "text-text-primary-light dark:text-text-primary-dark hover:bg-primary/8 hover:text-primary dark:hover:text-indigo-300"
+                                        }`}
+                                        whileHover={{ scale: 1.04 }}
+                                        whileTap={{ scale: 0.96 }}
                                         onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                                             e.preventDefault();
                                             const element: HTMLElement | null = document.querySelector(item.href);
@@ -61,11 +72,7 @@ const Navbar: React.FC = () => {
                                                 const elementPosition: number = element.getBoundingClientRect().top;
                                                 const offsetPosition: number =
                                                     elementPosition + window.pageYOffset - 100;
-
-                                                window.scrollTo({
-                                                    top: offsetPosition,
-                                                    behavior: "smooth",
-                                                });
+                                                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
                                             }
                                         }}
                                     >
@@ -74,15 +81,17 @@ const Navbar: React.FC = () => {
                                 ))}
                             </motion.div>
 
+                            <div className="w-px h-5 bg-primary/20 rounded-full" />
+
                             <ThemeToggle />
 
                             <motion.a
                                 href="https://github.com/motocite"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="glass-button px-3 py-1.5 flex items-center gap-2 text-sm"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
+                                className="glass-button px-3.5 py-1.5 flex items-center gap-2 text-sm font-semibold"
+                                whileHover={{ scale: 1.04 }}
+                                whileTap={{ scale: 0.96 }}
                             >
                                 <img
                                     src="/assets/icons/github.svg"
