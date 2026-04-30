@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply bg-secondary-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark transition-colors duration-300 antialiased font-medium;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    background-image:
+        radial-gradient(circle at top left, rgba(103, 207, 232, 0.16), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(43, 168, 196, 0.12), transparent 24%),
+        linear-gradient(180deg, rgba(248, 254, 255, 0.98), rgba(237, 247, 251, 0.98));
+    min-height: 100vh;
+}
+
+body.dark {
+    background-image:
+        radial-gradient(circle at top left, rgba(103, 207, 232, 0.12), transparent 24%),
+        radial-gradient(circle at 85% 18%, rgba(31, 122, 140, 0.16), transparent 28%),
+        linear-gradient(180deg, rgba(4, 16, 24, 0.98), rgba(7, 20, 28, 0.98));
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+    letter-spacing: -0.03em;
+}
+
+p, span, a {
+    @apply font-medium;
+}
+
+.text-gradient {
+    @apply font-extrabold;
+}
+
+.glass-pill {
+    @apply font-medium;
+}
+
+code {
+    @apply font-semibold;
+}
+
+::selection {
+    background: rgba(103, 207, 232, 0.25);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(103, 207, 232, 0.35);
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(103, 207, 232, 0.55);
+}
+
+@layer components {
+    .section-shell {
+        @apply relative container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    }
+
+    .section-heading {
+        @apply text-4xl font-extrabold sm:text-5xl lg:text-6xl;
+    }
+
+    .section-copy {
+        @apply text-base leading-7 text-text-secondary-light dark:text-text-secondary-dark sm:text-lg;
+    }
+}
