@@ -15,7 +15,7 @@ const Contact: React.FC = () => {
                 viewport={{ once: true }}
                 className="section-shell"
             >
-                <div className="text-center mb-14">
+                <div className="mb-14 text-center">
                     <motion.div
                         className="inline-flex items-center gap-2 glass-pill mb-5 text-sm"
                         initial={{ opacity: 0, y: 10 }}
@@ -40,8 +40,8 @@ const Contact: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
                     >
-                        Have a product idea, redesign, or custom build in mind? Atlantis Labs is ready to turn it
-                        into something sharp and production-ready.
+                        Have a product idea, redesign, or custom build in mind? Reach out and we can shape it into a
+                        polished launch-ready experience.
                     </motion.p>
                 </div>
 
@@ -99,8 +99,10 @@ const Contact: React.FC = () => {
                             )}
                         </div>
 
-                        <div className="rounded-[1.75rem] border border-primary/12 bg-white/45 p-5 text-left dark:bg-white/5">
-                            <div className="mb-2 text-sm uppercase tracking-[0.24em] text-primary">What we can build</div>
+                        <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-5 text-left">
+                            <div className="mb-2 text-sm uppercase tracking-[0.24em] text-primary">
+                                What we can build
+                            </div>
                             <p className="text-sm leading-7 text-text-secondary-light dark:text-text-secondary-dark">
                                 Landing pages, product marketing sites, internal dashboards, client portals, desktop
                                 tools, and interface refreshes with a more premium feel.

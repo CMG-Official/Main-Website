@@ -14,12 +14,12 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="section-shell py-8">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="panel-shell flex flex-col items-center justify-between gap-6 px-6 py-8 md:flex-row">
                     <motion.div
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="flex items-center gap-2.5"
+                        className="flex flex-col items-center gap-2.5 text-center md:items-start md:text-left"
                     >
                         <a href="#home" className="text-xl font-extrabold text-gradient tracking-tight">
                             ATLANTIS LABS
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
                                 href={link.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="glass-pill p-2.5 hover:bg-primary/12 transition-colors"
+                                className="glass-pill p-2.5 transition-colors hover:bg-primary/12"
                                 whileHover={{ scale: 1.08 }}
                                 whileTap={{ scale: 0.94 }}
                                 title={link.name}

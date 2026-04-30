@@ -1,6 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --bg-color: #0d1117;
+    --bg-surface: rgba(22, 27, 34, 0.62);
+    --bg-surface-hover: rgba(30, 36, 45, 0.82);
+    --accent-color: #67cfe8;
+    --accent-bright: #8cf0ff;
+    --accent-glow: rgba(103, 207, 232, 0.35);
+    --text-main: #e6edf3;
+    --text-muted: #8b949e;
+    --border-color: rgba(240, 246, 252, 0.1);
+    --font-heading: "Outfit", sans-serif;
+    --font-body: "Inter", sans-serif;
+}
 
 html {
     scroll-behavior: smooth;
@@ -9,22 +25,32 @@ html {
 body {
     @apply bg-secondary-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark transition-colors duration-300 antialiased font-medium;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
     background-image:
-        radial-gradient(circle at top left, rgba(103, 207, 232, 0.16), transparent 28%),
-        radial-gradient(circle at 85% 18%, rgba(43, 168, 196, 0.12), transparent 24%),
-        linear-gradient(180deg, rgba(248, 254, 255, 0.98), rgba(237, 247, 251, 0.98));
+        radial-gradient(circle at 85% 10%, rgba(103, 207, 232, 0.12), transparent 24%),
+        radial-gradient(circle at 10% 85%, rgba(57, 84, 128, 0.18), transparent 28%),
+        linear-gradient(180deg, #0d1117 0%, #0b1016 100%);
     min-height: 100vh;
 }
 
 body.dark {
     background-image:
-        radial-gradient(circle at top left, rgba(103, 207, 232, 0.12), transparent 24%),
-        radial-gradient(circle at 85% 18%, rgba(31, 122, 140, 0.16), transparent 28%),
-        linear-gradient(180deg, rgba(4, 16, 24, 0.98), rgba(7, 20, 28, 0.98));
+        radial-gradient(circle at 85% 10%, rgba(103, 207, 232, 0.14), transparent 24%),
+        radial-gradient(circle at 10% 85%, rgba(57, 84, 128, 0.2), transparent 28%),
+        linear-gradient(180deg, #0d1117 0%, #0b1016 100%);
+}
+
+body.light {
+    background-image:
+        radial-gradient(circle at 85% 10%, rgba(103, 207, 232, 0.12), transparent 24%),
+        radial-gradient(circle at 10% 85%, rgba(57, 84, 128, 0.12), transparent 28%),
+        linear-gradient(180deg, #edf6fb 0%, #e6eff6 100%);
 }
 
 h1, h2, h3, h4, h5, h6 {
     @apply font-bold;
+    font-family: var(--font-heading);
     letter-spacing: -0.03em;
 }
 
@@ -76,5 +102,9 @@ code {
 
     .section-copy {
         @apply text-base leading-7 text-text-secondary-light dark:text-text-secondary-dark sm:text-lg;
+    }
+
+    .panel-shell {
+        @apply rounded-[28px] border border-white/10 bg-white/[0.04] backdrop-blur-[18px] shadow-[0_25px_60px_rgba(0,0,0,0.35)];
     }
 }

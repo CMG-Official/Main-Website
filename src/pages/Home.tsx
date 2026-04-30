@@ -6,7 +6,6 @@ import Projects from "../components/projects/Projects";
 import Contact from "../components/home/Contact";
 import { useWindowResize } from "../hooks/useWindowResize";
 import ThemeToggle from "../components/layout/ThemeToggle";
-import StudioOverview from "../components/home/StudioOverview";
 
 const Home: React.FC = () => {
     const { isMobile, isXl } = useWindowResize();
@@ -63,9 +62,6 @@ const Home: React.FC = () => {
                     )}
                     <section id="home">
                         <Hero />
-                    </section>
-                    <section id="studio">
-                        <StudioOverview />
                     </section>
                     <section id="projects">
                         <Projects />

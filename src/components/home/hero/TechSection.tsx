@@ -9,7 +9,7 @@ const TechSection: React.FC<TechSectionProps> = ({ icon, title, items, onItemCli
 
     return (
         <div>
-            <h3 className="flex items-center gap-2 text-base sm:text-lg md:text-xl font-semibold mb-3 sm:mb-4 md:mb-6">
+            <h3 className="mb-4 flex items-center gap-2 text-base font-semibold uppercase tracking-[0.12em] text-text-primary-dark sm:text-lg">
                 <IconWrapper>{icon}</IconWrapper>
                 {title}
             </h3>
@@ -28,7 +28,7 @@ const TechSection: React.FC<TechSectionProps> = ({ icon, title, items, onItemCli
                 {items.map((item: TechItem) => (
                     <motion.div
                         key={item.name}
-                        className="glass-card p-2 sm:p-3 rounded-lg flex items-center justify-center cursor-pointer"
+                        className="flex cursor-pointer items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] p-3 sm:p-3.5"
                         variants={{
                             hidden: { opacity: 0, y: 20 },
                             visible: { opacity: 1, y: 0 },
@@ -39,9 +39,9 @@ const TechSection: React.FC<TechSectionProps> = ({ icon, title, items, onItemCli
                         <motion.img
                             src={`/assets/icons/${item.name.toLowerCase().replace(".", "").replace(" ", "")}.svg`}
                             alt={item.name}
-                            className={`w-5 h-5 sm:w-6 sm:h-6 mr-2 ${item.invert && theme === "dark" ? "invert" : ""}`}
+                            className={`mr-2 h-5 w-5 sm:h-6 sm:w-6 ${item.invert && theme === "dark" ? "invert" : ""}`}
                         />
-                        <span className="text-xs sm:text-sm">{item.name}</span>
+                        <span className="text-xs text-text-primary-dark sm:text-sm">{item.name}</span>
                     </motion.div>
                 ))}
             </motion.div>

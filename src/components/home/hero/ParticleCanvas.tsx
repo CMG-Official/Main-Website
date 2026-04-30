@@ -2,9 +2,9 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 const COLORS = {
-    bg: 0x07131a,
+    bg: 0x0d1117,
     primary: 0x67cfe8,
-    accent: 0x1f7a8c,
+    accent: 0x8cf0ff,
     white: 0xffffff,
 };
 

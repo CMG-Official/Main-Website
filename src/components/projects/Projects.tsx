@@ -18,13 +18,13 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
         >
-            <div className="relative overflow-hidden rounded-2xl h-full">
+            <div className="relative h-full overflow-hidden rounded-[24px]">
                 <motion.div
-                    className="glass-card h-full flex flex-col"
+                    className="glass-card flex h-full flex-col"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                 >
-                    <div className="relative h-48 overflow-hidden flex-shrink-0 rounded-t-2xl">
+                    <div className="relative h-48 flex-shrink-0 overflow-hidden rounded-t-[24px]">
                         <motion.img
                             src={project.image}
                             alt={project.title}
@@ -40,9 +40,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                         />
                     </div>
 
-                    <div className="p-6 flex flex-col flex-grow">
-                        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                        <p className="text-text-secondary-light dark:text-text-secondary-dark mb-4 flex-grow text-sm leading-relaxed">
+                    <div className="flex flex-grow flex-col p-6">
+                        <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
+                        <p className="mb-4 flex-grow text-sm leading-relaxed text-text-secondary-light dark:text-text-secondary-dark">
                             {project.description}
                         </p>
                         <div className="space-y-4">
@@ -139,7 +139,7 @@ const Projects: React.FC = () => {
                 viewport={{ once: true }}
                 className="section-shell"
             >
-                <div className="text-center mb-14">
+                <div className="mb-14 text-center">
                     <motion.div
                         className="inline-flex items-center gap-2 glass-pill mb-5 text-sm"
                         initial={{ opacity: 0, y: 10 }}
@@ -169,13 +169,13 @@ const Projects: React.FC = () => {
                     </motion.p>
                 </div>
 
-                <div className="flex justify-center gap-3 mb-12">
+                <div className="mb-12 flex justify-center gap-3">
                     {categories.map((category: string) => (
                         <motion.button
                             key={category}
                             className={`glass-pill capitalize font-semibold text-sm px-5 py-2 ${
                                 selectedCategory === category
-                                    ? "bg-primary/15 border-primary/30 text-primary dark:text-indigo-300"
+                                    ? "border-primary/40 bg-primary/10 text-primary"
                                     : ""
                             }`}
                             whileHover={{ scale: 1.04 }}
@@ -192,7 +192,7 @@ const Projects: React.FC = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
                 >
                     {filteredProjects.length > 0 ? (
                         filteredProjects.map((project: Project) => (

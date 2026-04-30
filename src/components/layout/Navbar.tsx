@@ -32,21 +32,21 @@ const Navbar: React.FC = () => {
                     <nav
                         className={`rounded-2xl transition-all duration-300 ${
                             isScrolled
-                                ? "backdrop-blur-xl bg-white/65 dark:bg-dark-100/75 shadow-lg shadow-primary/10 border border-white/20 dark:border-primary/15"
+                                ? "border border-white/10 bg-black/35 shadow-lg shadow-black/30 backdrop-blur-xl"
                                 : "bg-transparent"
                         }`}
                     >
                         <div className="flex items-center gap-3 px-5 py-2.5">
                             <motion.a
                                 href="#home"
-                                className="text-lg font-extrabold text-gradient mr-1 tracking-tight"
+                                className="mr-1 text-lg font-extrabold tracking-[0.18em] text-gradient"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
                                 ATLANTIS LABS
                             </motion.a>
 
-                            <div className="w-px h-5 bg-primary/20 rounded-full" />
+                            <div className="h-5 w-px rounded-full bg-white/10" />
 
                             <motion.div
                                 className="flex items-center gap-1"
@@ -60,8 +60,8 @@ const Navbar: React.FC = () => {
                                         href={item.href}
                                         className={`px-3.5 py-1.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
                                             activeSection === item.href.replace("#", "")
-                                                ? "bg-primary/15 text-primary dark:text-primary"
-                                                : "text-text-primary-light dark:text-text-primary-dark hover:bg-primary/8 hover:text-primary dark:hover:text-primary"
+                                                ? "bg-white/10 text-white"
+                                                : "text-text-secondary-dark hover:bg-white/5 hover:text-white"
                                         }`}
                                         whileHover={{ scale: 1.04 }}
                                         whileTap={{ scale: 0.96 }}
@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
                                 ))}
                             </motion.div>
 
-                            <div className="w-px h-5 bg-primary/20 rounded-full" />
+                            <div className="h-5 w-px rounded-full bg-white/10" />
 
                             <ThemeToggle />
 
