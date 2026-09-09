@@ -108,3 +108,30 @@ code {
         @apply rounded-[28px] border border-white/10 bg-white/[0.04] backdrop-blur-[18px] shadow-[0_25px_60px_rgba(0,0,0,0.35)];
     }
 }
+
+@keyframes textShine {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.shining-text {
+    background: linear-gradient(
+        110deg,
+        #f59e0b 0%,
+        #fbbf24 25%,
+        #ffffff 50%,
+        #fbbf24 75%,
+        #f59e0b 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textShine 3s linear infinite;
+    display: inline-block;
+}
+
