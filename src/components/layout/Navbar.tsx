@@ -5,14 +5,19 @@ import { useWindowResize } from "../../hooks/useWindowResize";
 import { useScrollVisibility } from "../../hooks/useScrollVisibility";
 import ThemeToggle from "../layout/ThemeToggle";
 import { navItems } from "../../data/navitems";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
     const { theme } = useTheme();
     const { isScrolled, activeSection } = useScrollPosition();
     const { isMobile, isXl } = useWindowResize();
     const isVisible: boolean = useScrollVisibility(isXl);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     if (isMobile || !isXl) return null;
+
+    const isSilencePage = location.pathname === "/silence";
 
     return (
         <AnimatePresence>
@@ -37,14 +42,18 @@ const Navbar: React.FC = () => {
                         }`}
                     >
                         <div className="flex items-center gap-3 px-5 py-2.5">
-                            <motion.a
-                                href="#home"
+                            <Link
+                                to="/"
+                                onClick={(e) => {
+                                    if (location.pathname === "/") {
+                                        e.preventDefault();
+                                        window.scrollTo({ top: 0, behavior: "smooth" });
+                                    }
+                                }}
                                 className="mr-1 text-lg font-extrabold tracking-[0.18em] text-gradient"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
                             >
                                 ATLANTIS LABS
-                            </motion.a>
+                            </Link>
 
                             <div className="h-5 w-px rounded-full bg-white/10" />
 
@@ -59,7 +68,7 @@ const Navbar: React.FC = () => {
                                         key={item.label}
                                         href={item.href}
                                         className={`px-3.5 py-1.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                                            activeSection === item.href.replace("#", "")
+                                            !isSilencePage && activeSection === item.href.replace("#", "")
                                                 ? "bg-white/10 text-white"
                                                 : "text-text-secondary-dark hover:bg-white/5 hover:text-white"
                                         }`}
@@ -67,18 +76,33 @@ const Navbar: React.FC = () => {
                                         whileTap={{ scale: 0.96 }}
                                         onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                                             e.preventDefault();
-                                            const element: HTMLElement | null = document.querySelector(item.href);
-                                            if (element) {
-                                                const elementPosition: number = element.getBoundingClientRect().top;
-                                                const offsetPosition: number =
-                                                    elementPosition + window.pageYOffset - 100;
-                                                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                                            if (location.pathname !== "/") {
+                                                navigate(`/${item.href}`);
+                                            } else {
+                                                const element: HTMLElement | null = document.querySelector(item.href);
+                                                if (element) {
+                                                    const elementPosition: number = element.getBoundingClientRect().top;
+                                                    const offsetPosition: number =
+                                                        elementPosition + window.pageYOffset - 100;
+                                                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                                                }
                                             }
                                         }}
                                     >
                                         {item.label}
                                     </motion.a>
                                 ))}
+
+                                <Link
+                                    to="/silence"
+                                    className={`px-3.5 py-1.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                                        isSilencePage
+                                            ? "bg-primary/20 text-primary border border-primary/30"
+                                            : "text-text-secondary-dark hover:bg-white/5 hover:text-white"
+                                    }`}
+                                >
+                                    Silence
+                                </Link>
                             </motion.div>
 
                             <div className="h-5 w-px rounded-full bg-white/10" />

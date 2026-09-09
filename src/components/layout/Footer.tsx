@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { SocialLink } from "../../types";
 import { socialLinks } from "../../data/sociallinks";
 import { useTheme } from "../../contexts/ThemeContext";
@@ -21,12 +22,20 @@ const Footer: React.FC = () => {
                         viewport={{ once: true }}
                         className="flex flex-col items-center gap-2.5 text-center md:items-start md:text-left"
                     >
-                        <a href="#home" className="text-xl font-extrabold text-gradient tracking-tight">
+                        <Link
+                            to="/"
+                            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                            className="text-xl font-extrabold text-gradient tracking-tight"
+                        >
                             ATLANTIS LABS
-                        </a>
-                        <span className="text-text-secondary-light dark:text-text-secondary-dark text-sm">
-                            © {currentYear} Atlantis Labs · Designed to feel bigger, cleaner, and launch-ready
-                        </span>
+                        </Link>
+                        <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-3 gap-y-1 text-text-secondary-light dark:text-text-secondary-dark text-sm">
+                            <span>© {currentYear} Atlantis Labs · Designed to feel bigger, cleaner, and launch-ready</span>
+                            <span className="text-white/20">•</span>
+                            <Link to="/silence" className="text-primary hover:underline font-semibold">
+                                Silence Profile
+                            </Link>
+                        </div>
                     </motion.div>
 
                     <motion.div
