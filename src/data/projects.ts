@@ -16,7 +16,7 @@ const projects: Project[] = [
         title: "Tide Desktop",
         description:
             "A focused desktop workspace for shipping internal tools faster, with compact navigation, native performance, and clean UX.",
-        image: "/assets/preview-100-dark.png",
+        image: "/assets/tide-desktop.png",
         techStack: ["Electron", "Node.js", "TypeScript", "CSS"],
         githubUrl: "https://github.com/motocite",
         featured: true,
@@ -26,7 +26,7 @@ const projects: Project[] = [
         title: "Current OS",
         description:
             "A polished client portal concept designed for productized services, featuring project visibility, milestones, and async updates.",
-        image: "/assets/preview-150-light.png",
+        image: "/assets/current-os.png",
         techStack: ["Next.js", "Supabase", "Tailwind", "Vercel"],
         liveUrl: "https://atlantislabs.top",
         githubUrl: "https://github.com/motocite",
